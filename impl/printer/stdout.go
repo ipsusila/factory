@@ -23,7 +23,7 @@ func init() {
 }
 
 // constructor that will be used by factory
-func constructor(_ string) (factory.Object, error) {
+func constructor(_ factory.Options) (factory.Object, error) {
 	return &stdoutPrinter{}, nil
 }
 

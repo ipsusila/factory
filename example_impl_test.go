@@ -24,7 +24,7 @@ func init() {
 }
 
 // constructor that will be used by factory
-func constructor(_ string) (factory.Object, error) {
+func constructor(_ factory.Options) (factory.Object, error) {
 	return &stdoutPrinter{}, nil
 }
 
@@ -47,7 +47,7 @@ func Example_implementation() {
 	// import _ "path/to/package"
 
 	// object creation configuration. `name` should be the value that was used to register factory
-	configData := `{"name": "printer", "configSource": "any data to be passed to constructor"}`
+	configData := `{"name": "printer", "options": {}}`
 
 	c := factory.ObjectConfig{}
 	json.Unmarshal([]byte(configData), &c)

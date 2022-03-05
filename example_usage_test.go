@@ -10,8 +10,14 @@ import (
 )
 
 func Example_usage() {
+	conf := factory.ObjectConfig{
+		Name: "file",
+		Options: factory.Options{
+			"filename": "LICENSE",
+		},
+	}
 	// Create file reader object using registered factory
-	fo := factory.MustCreate(factory.ObjectConfig{"file", "LICENSE"})
+	fo := factory.MustCreate(conf)
 	fd, ok := fo.(io.ReadCloser)
 	if !ok {
 		log.Fatalf("FileReader object must implement io.ReadCloser interface")

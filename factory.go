@@ -5,7 +5,7 @@ import (
 )
 
 // ConstructorFunc for creating object
-type ConstructorFunc func(configSource string) (Object, error)
+type ConstructorFunc func(args Options) (Object, error)
 
 // Object that will be created by the factory
 type Object interface {
@@ -48,7 +48,7 @@ func MustCreate(c ObjectConfig) Object {
 		panic(msg)
 	}
 
-	obj, err := f.Create(c.ConfigSource)
+	obj, err := f.Create(c.Options)
 	if err != nil {
 		panic(err)
 	}
@@ -62,7 +62,7 @@ func Create(c ObjectConfig) (Object, error) {
 		return nil, fmt.Errorf("factory %s does not exist, do you forgot to import package?",
 			c.Name)
 	}
-	return f.Create(c.ConfigSource)
+	return f.Create(c.Options)
 }
 
 // Info return factory information
@@ -71,9 +71,9 @@ func (f *Factory) Info() Info {
 }
 
 // Create object with given configuration source
-func (f *Factory) Create(configSource string) (Object, error) {
+func (f *Factory) Create(args Options) (Object, error) {
 	if f.cf == nil {
 		return nil, fmt.Errorf("constructor is not defined in factory %s", f.info.Name)
 	}
-	return f.cf(configSource)
+	return f.cf(args)
 }

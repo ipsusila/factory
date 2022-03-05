@@ -2,6 +2,6 @@ package factory
 
 // ObjectConfig stores factory configuration
 type ObjectConfig struct {
-	Name         string `json:"name" toml:"name" yaml:"name"`
-	ConfigSource string `json:"configSource" toml:"configSource" yaml:"configSource"`
+	Name    string  `json:"name" toml:"name" yaml:"name" xml:"name"`
+	Options Options `json:"options" toml:"options" yaml:"options" xml:"options"`
 }

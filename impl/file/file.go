@@ -25,8 +25,8 @@ func init() {
 }
 
 // constructor create fileObject that open file from given configSrc
-func constructor(configSrc string) (factory.Object, error) {
-	fd, err := os.Open(configSrc)
+func constructor(args factory.Options) (factory.Object, error) {
+	fd, err := os.Open(args.String("filename"))
 	if err != nil {
 		return nil, err
 	}
