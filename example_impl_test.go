@@ -38,7 +38,7 @@ func (p *stdoutPrinter) Println(args ...interface{}) {
 	fmt.Println(args...)
 }
 
-func Example_implementation_test() {
+func Example_implementation() {
 	type printer interface {
 		Println(args ...interface{})
 	}
