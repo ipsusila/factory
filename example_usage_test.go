@@ -10,7 +10,7 @@ import (
 )
 
 func Example_usage() {
-	conf := factory.ObjectConfig{
+	conf := factory.Config{
 		Name: "file",
 		Options: factory.Options{
 			"filename": "LICENSE",

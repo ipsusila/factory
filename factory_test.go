@@ -11,7 +11,7 @@ import (
 )
 
 func TestFileOpenFactory(t *testing.T) {
-	c := factory.ObjectConfig{
+	c := factory.Config{
 		Name: "file",
 		Options: factory.Options{
 			"filename": "LICENSE",

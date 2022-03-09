@@ -49,7 +49,7 @@ func Example_implementation() {
 	// object creation configuration. `name` should be the value that was used to register factory
 	configData := `{"name": "printer", "options": {}}`
 
-	c := factory.ObjectConfig{}
+	c := factory.Config{}
 	json.Unmarshal([]byte(configData), &c)
 
 	// create object using factory

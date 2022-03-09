@@ -39,7 +39,7 @@ func Register(name string, info Info, cf ConstructorFunc) {
 
 // MustCreate create object using given factory name.
 // If the factory does not exists, or error, it will panic
-func MustCreate(c ObjectConfig) Object {
+func MustCreate(c Config) Object {
 	f := Get(c.Name)
 	if f == nil {
 		msg := fmt.Sprintf(
@@ -56,7 +56,7 @@ func MustCreate(c ObjectConfig) Object {
 }
 
 // Create create objects using given factory name and config source
-func Create(c ObjectConfig) (Object, error) {
+func Create(c Config) (Object, error) {
 	f := Get(c.Name)
 	if f == nil {
 		return nil, fmt.Errorf("factory %s does not exist, do you forgot to import package?",
